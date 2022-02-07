@@ -12,7 +12,7 @@ class Jalur_model extends CI_Model{
             $this->db->where('bg_color IS NOT NULL');
             $this->db->where('font_color IS NOT NULL');
         }
-        $this->db->order_by('id_jenjang','DESC');
+        $this->db->order_by('id_jenjang','ASC');
         return $this->db->get('jalur_jenjang');
     }
     public function updateJalur($id,$data){

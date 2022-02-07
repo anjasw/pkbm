@@ -23,6 +23,12 @@ class Home extends CI_Controller {
         $data['warnasmk'] = $this->jm->getJalur(false,'smk',true);
         $data['sma'] = $this->jm->getJalur(false,'sma');
         $data['warnasma'] = $this->jm->getJalur(false,'sma',true);
+		$data['title'] = $this->db->get('config_page')->row()->title;
+		$data['logo'] = $this->db->get('config_page')->row()->logo;
+		$data['icon'] = $this->db->get('config_page')->row()->icon;
+		$data['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
+		$data['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
+		$data['description'] = $this->db->get('config_page')->row()->meta_description;
 		$this->load->view('front/homepage',$data);
 	}
 	public function savepd(){

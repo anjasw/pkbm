@@ -6,6 +6,10 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<meta name="keywords" content="<?php echo $keywords ?>"/>
+<meta name="description" content="<?php echo $description ?>"/>
+<link rel="shortcut icon" href="<?php echo base_url().'uploads/'.$icon ?>" type="image/x-icon">
+<title><?php echo $title ?></title>
 <style>
 * {
   box-sizing: border-box;
@@ -137,7 +141,7 @@ input.invalid {
                     </div>
                     <div class="col-md-6">
                       <div class="card">
-                        <div class="card-header text-white bg-primary">                   
+                        <div class="card-header" style="background-color:<?php echo $warnasmp->row()->bg_color ?>;color:<?php echo $warnasmp->row()->font_color ?>;">                   
                         <p class="mb-0">Pendaftaran Online Jenjang</p>
                           <h4>Jalur SMP</h4>
                         </div>
@@ -155,7 +159,7 @@ input.invalid {
                     <div class="row">
                     <div class="col-md-6">
                       <div class="card">
-                        <div class="card-header text-white bg-secondary">
+                        <div class="card-header" style="background-color:<?php echo $warnasma->row()->bg_color ?>;color:<?php echo $warnasma->row()->font_color ?>;">
                           <p class="mb-0">Pendaftaran Online Jenjang</p>
                           <h4>Jalur SMA</h4>
                         </div>
@@ -170,7 +174,7 @@ input.invalid {
                     </div>
                     <div class="col-md-6">
                       <div class="card">
-                        <div class="card-header bg-warning">
+                        <div class="card-header" style="background-color:<?php echo $warnasmk->row()->bg_color ?>;color:<?php echo $warnasmk->row()->font_color ?>;">
                           <p class="mb-0">Pendaftaran Online Jenjang</p>
                           <h4>Jalur SMK</h4>
                         </div>
