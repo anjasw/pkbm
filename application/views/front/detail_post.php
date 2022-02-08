@@ -20,8 +20,3 @@
         </div>
     </div>
 </div>
-<footer class="py-3 my-0 bg-light">
-    <p class="text-center text-muted">&copy; 2022 KPT</p>
-</footer>
-</body>
-</html>

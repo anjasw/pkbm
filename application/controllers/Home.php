@@ -12,27 +12,29 @@ class Home extends CI_Controller {
 		$this->load->model('Jalur_model','jm');
 	}
 	public function index(){
-		$data['posts'] = $this->pst->getPosts();
-		$data['kontak'] = $this->km->getKontak();
-		$data['slider'] = $this->sm->getSlider();
-		$data['sd'] = $this->jm->getJalur(false,'sd');
-        $data['warnasd'] = $this->jm->getJalur(false,'sd',true);
-        $data['smp'] = $this->jm->getJalur(false,'smp');
-        $data['warnasmp'] = $this->jm->getJalur(false,'smp',true);
-        $data['smk'] = $this->jm->getJalur(false,'smk');
-        $data['warnasmk'] = $this->jm->getJalur(false,'smk',true);
-        $data['sma'] = $this->jm->getJalur(false,'sma');
-        $data['warnasma'] = $this->jm->getJalur(false,'sma',true);
-		$data['title'] = $this->db->get('config_page')->row()->title;
-		$data['logo'] = $this->db->get('config_page')->row()->logo;
-		$data['icon'] = $this->db->get('config_page')->row()->icon;
-		$data['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
-		$data['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
-		$data['description'] = $this->db->get('config_page')->row()->meta_description;
-		$this->load->view('front/head');
+		$home['posts'] = $this->pst->getPosts();
+		$home['kontak'] = $this->km->getKontak();
+		$home['slider'] = $this->sm->getSlider();
+		$home['sd'] = $this->jm->getJalur(false,'sd');
+        $home['warnasd'] = $this->jm->getJalur(false,'sd',true);
+        $home['smp'] = $this->jm->getJalur(false,'smp');
+        $home['warnasmp'] = $this->jm->getJalur(false,'smp',true);
+        $home['smk'] = $this->jm->getJalur(false,'smk');
+        $home['warnasmk'] = $this->jm->getJalur(false,'smk',true);
+        $home['sma'] = $this->jm->getJalur(false,'sma');
+        $home['warnasma'] = $this->jm->getJalur(false,'sma',true);
+		$head['title'] = $this->db->get('config_page')->row()->title;
+		$head['logo'] = $this->db->get('config_page')->row()->logo;
+		$head['icon'] = $this->db->get('config_page')->row()->icon;
+		$head['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
+		$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
+		$head['description'] = $this->db->get('config_page')->row()->meta_description;
+		$foot['logo'] = $this->db->get('config_page')->row()->logo;
+
+		$this->load->view('front/head',$head);
 		$this->load->view('front/nav');
-		$this->load->view('front/homepage',$data);
-		$this->load->view('front/foot');
+		$this->load->view('front/homepage',$home);
+		$this->load->view('front/foot',$foot);
 	}
 	public function savepd(){
 		if($this->input->method(TRUE) == "POST"){
@@ -62,10 +64,20 @@ class Home extends CI_Controller {
 	public function detail_post($id_post){
 		if($id_post){
 			$data['detail_post'] = $this->pst->getPosts($id_post);
-			$this->load->view('front/head');
+			if($data['detail_post']->num_rows() < 1){
+				show_404();
+			}
+			$head['title'] = $data['detail_post']->row()->title;
+			$head['logo'] = $this->db->get('config_page')->row()->logo;
+			$head['icon'] = $this->db->get('config_page')->row()->icon;
+			$head['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
+			$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
+			$head['description'] = $this->db->get('config_page')->row()->meta_description;
+			$foot['logo'] = $this->db->get('config_page')->row()->logo;
+			$this->load->view('front/head',$head);
 			$this->load->view('front/nav');
 			$this->load->view('front/detail_post',$data);
-			$this->load->view('front/foot');
+			$this->load->view('front/foot',$foot);
 		}else{
 			show_404();
 		}

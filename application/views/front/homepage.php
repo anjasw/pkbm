@@ -243,7 +243,7 @@
                   <div class="card-body">
                     <h5 class="card-title"><?php echo $p->title ?></h5>
                     <p class="card-text"><?php echo word_limiter($p->description,20); ?></p>
-                    <a href="<?php echo base_url().'home/detail_post/'.$p->id_posts ?>" class="btn btn-primary">Lihat Detail</a>
+                    <a href="<?php echo base_url().'home/detail_post/'.$p->id_posts.'/'.str_replace(' ','-',strtolower($p->title)) ?>" class="btn btn-primary">Lihat Detail</a>
                   </div>
               </div>
             </div>

@@ -130,6 +130,7 @@
 
 <!-- jQuery -->
 <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+<script src="<?php echo base_url() ?>assets/plugins/ckeditor/ckeditor.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
@@ -156,12 +157,13 @@
   $('#closeSMK').click(function(){
     $('#formSMK').modal('hide')
   })
-  $('#addSMA').click(function(){
-    $('#formSMA').modal('show')
+  $('#addSMA ').click(function(){
+    $('#formSMA ').modal('show')
   })
-  $('#closeSMA').click(function(){
-    $('#formSMA').modal('hide')
+  $('#closeSMA ').click(function(){
+    $('#formSMA ').modal('hide')
   })
+  CKEDITOR.replace( 'description' );
 </script>
 </body>
 </html>
