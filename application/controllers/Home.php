@@ -29,7 +29,10 @@ class Home extends CI_Controller {
 		$data['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
 		$data['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
 		$data['description'] = $this->db->get('config_page')->row()->meta_description;
+		$this->load->view('front/head');
+		$this->load->view('front/nav');
 		$this->load->view('front/homepage',$data);
+		$this->load->view('front/foot');
 	}
 	public function savepd(){
 		if($this->input->method(TRUE) == "POST"){
@@ -59,7 +62,10 @@ class Home extends CI_Controller {
 	public function detail_post($id_post){
 		if($id_post){
 			$data['detail_post'] = $this->pst->getPosts($id_post);
+			$this->load->view('front/head');
+			$this->load->view('front/nav');
 			$this->load->view('front/detail_post',$data);
+			$this->load->view('front/foot');
 		}else{
 			show_404();
 		}
