@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Simple Tables</title>
+  <title>ADMIN PKBM</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,6 +13,12 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/toastr/toastr.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/dist/css/adminlte.min.css">
+  <style>
+    .input-color{
+      border-radius: 33px;
+      width: 30px;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -86,6 +92,30 @@
               <i class="nav-icon fas fa-list"></i>
               <p>
                 Slider
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url() ?>backadmin/jalur" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Jalur Pendaftaran
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url() ?>backadmin/pengaturan" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Pengaturan
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url() ?>backadmin/kategori" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Kategori Posts
               </p>
             </a>
           </li>

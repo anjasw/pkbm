@@ -234,16 +234,21 @@
         </div>
       </div>
       <div class="bg-light py-5 mb-5">
-        <div class="container my-5 ">
-        <div class="row mx-0">
+        <div class="container">
+          <div class="row">
+            <h3>Postingan Terbaru</h3>
+          </div>
+        <div class="row mx-0 mt-3">
             <?php foreach($posts->result() as $p): ?>
             <div class="col-md-3 col-sm-12">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                   <img src="<?php echo base_url().'uploads/'.$p->image ?>" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title"><?php echo $p->title ?></h5>
-                    <p class="card-text"><?php echo word_limiter($p->description,20); ?></p>
-                    <a href="<?php echo base_url().'home/detail_post/'.$p->id_posts.'/'.str_replace(' ','-',strtolower($p->title)) ?>" class="btn btn-primary">Lihat Detail</a>
+                    <p>
+                      <?php echo word_limiter($p->description,19); ?>
+                      <a href="<?php echo base_url().'home/detail_post/'.$p->id_posts.'/'.str_replace(' ','-',strtolower($p->title)) ?>">Selengkapnya</a>
+                   </p>
                   </div>
               </div>
             </div>

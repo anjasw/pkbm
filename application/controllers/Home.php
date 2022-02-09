@@ -30,6 +30,8 @@ class Home extends CI_Controller {
 		$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
 		$head['description'] = $this->db->get('config_page')->row()->meta_description;
 		$foot['logo'] = $this->db->get('config_page')->row()->logo;
+		$foot['kategori'] = $this->db->get('kategori');
+		$foot['posts'] = $this->pst->getPosts(false,true);
 
 		$this->load->view('front/head',$head);
 		$this->load->view('front/nav');
@@ -67,13 +69,18 @@ class Home extends CI_Controller {
 			if($data['detail_post']->num_rows() < 1){
 				show_404();
 			}
+			$jumlah = (int)$this->db->where('id_posts',$id_post)->get('posts')->row()->visited + 1;
+			//   var_dump($jumlah);die();
+			$this->db->where('id_posts',$id_post)->update('posts',array('visited' => $jumlah));
 			$head['title'] = $data['detail_post']->row()->title;
 			$head['logo'] = $this->db->get('config_page')->row()->logo;
 			$head['icon'] = $this->db->get('config_page')->row()->icon;
 			$head['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
 			$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
 			$head['description'] = $this->db->get('config_page')->row()->meta_description;
+			$foot['posts'] = $this->pst->getPosts(false,true);
 			$foot['logo'] = $this->db->get('config_page')->row()->logo;
+			$foot['kategori'] = $this->db->get('kategori');
 			$this->load->view('front/head',$head);
 			$this->load->view('front/nav');
 			$this->load->view('front/detail_post',$data);
@@ -81,5 +88,21 @@ class Home extends CI_Controller {
 		}else{
 			show_404();
 		}
+	}
+	public function contact_us(){
+		$data['kontak'] = $this->km->getKontak();
+		$head['title'] = 'Kontak Kami';
+		$head['logo'] = $this->db->get('config_page')->row()->logo;
+		$head['icon'] = $this->db->get('config_page')->row()->icon;
+		$head['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
+		$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
+		$head['description'] = $this->db->get('config_page')->row()->meta_description;
+		$foot['posts'] = $this->pst->getPosts(false,true);
+		$foot['logo'] = $this->db->get('config_page')->row()->logo;
+		$foot['kategori'] = $this->db->get('kategori');
+		$this->load->view('front/head',$head);
+		$this->load->view('front/nav');
+		$this->load->view('front/contact_us',$data);
+		$this->load->view('front/foot',$foot);
 	}
 }
