@@ -1,7 +1,7 @@
 <footer class="py-3 my-0 bg-light">
 <div class="container">
 <div class="row">
-    <div class="col py-5">
+    <div class="col my-auto">
       <p class="text-muted">&copy; KPT 2022</p>
     </div>
 

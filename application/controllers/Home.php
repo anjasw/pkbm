@@ -40,6 +40,9 @@ class Home extends CI_Controller {
 	}
 	public function savepd(){
 		if($this->input->method(TRUE) == "POST"){
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('nisn', 'NISN', 'required|is_unique[pendaftar.nisn]');
+			$this->form_validation->set_rules('nis', 'NIS', 'required|is_unique[pendaftar.nis]');
 			$dataInsert['nis'] = $this->input->post('nis');
             $dataInsert['nisn'] = $this->input->post('nisn');
             $dataInsert['nama'] = $this->input->post('nama');
@@ -54,9 +57,14 @@ class Home extends CI_Controller {
             $dataInsert['no_wa'] = $this->input->post('no_wa');
             $dataInsert['alamat'] = $this->input->post('alamat');
             $dataInsert['createdAt'] = date('Y-m-d H:i:s');
-            if($this->pd->insertPendaftar($dataInsert)){
-                redirect('home/success');
+			if($this->form_validation->run() == FALSE) {
+                echo '<script>alert("NIS/NISN sudah terdaftar");window.location.href="'.base_url().'"</script>';
+            }else{
+                if($this->pd->insertPendaftar($dataInsert)){
+               		echo '<script>alert("Berhasil Mendaftar");window.location.href="'.base_url().'"</script>';
+				}
             }
+            
 		}
 	}
 	public function success(){

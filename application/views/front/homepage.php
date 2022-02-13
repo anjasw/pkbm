@@ -242,7 +242,7 @@
             <?php foreach($posts->result() as $p): ?>
             <div class="col-md-3 col-sm-12">
                 <div class="card">
-                  <img src="<?php echo base_url().'uploads/'.$p->image ?>" class="card-img-top" alt="...">
+                  <img src="<?php echo base_url().'uploads/'.$p->image ?>" class="card-img-top" alt="<?php echo $p->alt_img ?>" width="100%" height="140">
                   <div class="card-body">
                     <h5 class="card-title"><?php echo $p->title ?></h5>
                     <p>
