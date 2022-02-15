@@ -33,7 +33,7 @@
                             Peta Sekolah
                         </div>
                         <div class="card-body">
-                            <iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo $embed_lokasi ?>"></iframe>
+                        <?php echo $embed_lokasi ?>
                         </div>
                     </div>
                 </div>
