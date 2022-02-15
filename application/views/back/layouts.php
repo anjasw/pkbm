@@ -43,7 +43,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?php echo base_url() ?>assets/index3.html" class="brand-link">
+    <a href="<?php echo base_url() ?>backadmin" class="brand-link">
       <span class="brand-text font-weight-light">PKBM</span>
     </a>
 
