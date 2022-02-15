@@ -4,7 +4,8 @@ $logo = $this->db->get('config_page')->row()->logo;
 <nav class="navbar navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="<?php echo base_url() ?>">
-      <img src="<?php echo base_url().'uploads/'.$logo ?>" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      <img src="<?php echo base_url().'uploads/'.$logo ?>" alt="" width="30" height="30" class="d-inline-block align-text-top">
+      <?php echo $text_nav ?>
     </a>
         <ul class="navbar-nav">
           <li class="nav-item">

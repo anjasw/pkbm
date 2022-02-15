@@ -28,6 +28,7 @@ class Home extends CI_Controller {
 		$head['icon'] = $this->db->get('config_page')->row()->icon;
 		$head['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
 		$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
+		$head['text_nav'] = $this->db->get('config_page')->row()->text_nav;
 		$head['description'] = $this->db->get('config_page')->row()->meta_description;
 		$foot['logo'] = $this->db->get('config_page')->row()->logo;
 		$foot['kategori'] = $this->db->get('kategori');
@@ -83,6 +84,7 @@ class Home extends CI_Controller {
 			$head['title'] = $data['detail_post']->row()->title;
 			$head['logo'] = $this->db->get('config_page')->row()->logo;
 			$data['kontak'] = $this->km->getKontak();
+			$head['text_nav'] = $this->db->get('config_page')->row()->text_nav;
 			$head['icon'] = $this->db->get('config_page')->row()->icon;
 			$head['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
 			$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
@@ -105,6 +107,7 @@ class Home extends CI_Controller {
 		$head['icon'] = $this->db->get('config_page')->row()->icon;
 		$head['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
 		$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
+		$head['text_nav'] = $this->db->get('config_page')->row()->text_nav;
 		$head['description'] = $this->db->get('config_page')->row()->meta_description;
 		$foot['posts'] = $this->pst->getPosts(false,true);
 		$foot['logo'] = $this->db->get('config_page')->row()->logo;
