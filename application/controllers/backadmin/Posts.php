@@ -25,6 +25,7 @@ class Posts extends CI_Controller {
                     }
                 }
                 $dataInsert['title'] = $this->input->post('title');
+                $dataInsert['id_kategori'] = $this->input->post('kategori');
                 $dataInsert['description'] = $this->input->post('description');
                 $dataInsert['meta_keyword'] = $this->input->post('meta_keyword');
                 $dataInsert['meta_description'] = $this->input->post('meta_description');
@@ -34,6 +35,7 @@ class Posts extends CI_Controller {
                 }
             }
             $data['view'] = 'back/posts/edit';
+            $data['kategori'] = $this->db->get('kategori')->result();
             $data['data'] = $this->pm->getPosts($id)->row();
 		    $this->load->view('back/layouts',$data);
             
@@ -50,6 +52,7 @@ class Posts extends CI_Controller {
                     $dataInsert['image'] = $filename['file']['file_name'];
                 }
             }
+            $dataInsert['id_kategori'] = $this->input->post('kategori');
             $dataInsert['title'] = $this->input->post('title');
             $dataInsert['description'] = $this->input->post('description');
             $dataInsert['meta_keyword'] = $this->input->post('meta_keyword');
@@ -63,6 +66,7 @@ class Posts extends CI_Controller {
         }
         $data['view'] = 'back/posts/tambah';
         // $data['data'] = $this->pm->getPosts($id)->row();
+        $data['kategori'] = $this->db->get('kategori')->result();
 		$this->load->view('back/layouts',$data);
     }
     public function hapus($id = false){

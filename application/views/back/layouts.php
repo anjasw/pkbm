@@ -119,6 +119,13 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url() ?>backadmin/login/logout" class="nav-link">
+              <p>
+                Logout
+              </p>
+            </a>
+          </li>
           
         </ul>
       </nav>

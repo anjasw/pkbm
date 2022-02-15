@@ -82,6 +82,7 @@ class Home extends CI_Controller {
 			$this->db->where('id_posts',$id_post)->update('posts',array('visited' => $jumlah));
 			$head['title'] = $data['detail_post']->row()->title;
 			$head['logo'] = $this->db->get('config_page')->row()->logo;
+			$data['kontak'] = $this->km->getKontak();
 			$head['icon'] = $this->db->get('config_page')->row()->icon;
 			$head['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
 			$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;

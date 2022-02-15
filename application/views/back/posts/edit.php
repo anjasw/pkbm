@@ -3,6 +3,14 @@
         <div class="row">
             <div class="col-md-8 offset-2">
                 <div class="form-group">
+                    <label for="kategori">Kategori</label>
+                    <select name="kategori" id="kategori" class="form-control">
+                        <?php foreach($kategori as $k): ?>
+                            <option value="<?php echo $k->id_kategori ?>" <?php echo $k->id_kategori  == $data->id_kategori  ? 'selected' : '' ?>><?php echo $k->nama_kategori ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="title">Judul</label>
                     <input type="text" name="title" class="form-control" value="<?= $data->title ?>">
                 </div>

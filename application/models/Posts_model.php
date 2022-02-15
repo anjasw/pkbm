@@ -8,6 +8,7 @@ class Posts_model extends CI_Model{
         if($foot){
             $this->db->limit(3);
         }
+        $this->db->join('kategori','posts.id_kategori = kategori.id_kategori','LEFT');
         $this->db->order_by('id_posts','DESC');
         return $this->db->get('posts');
     }

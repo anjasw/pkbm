@@ -12,9 +12,30 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">
-                    <p>tes</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-kontak text-white">Info & Kontak</div>
+                        <div class="card-body">
+                            <ul>
+                                <?php foreach($kontak->result() as $r): ?>
+                                    <li><a href="#" style="text-decoration:none"><?= $r->tipe.' - '.$r->kontak ?></a></li>
+                                    <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-kontak text-white">
+                            Peta Sekolah
+                        </div>
+                        <div class="card-body">
+                            <iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo $embed_lokasi ?>"></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
