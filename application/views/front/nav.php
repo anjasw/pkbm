@@ -6,7 +6,7 @@ $logo = $this->db->get('config_page')->row()->logo;
     <a class="navbar-brand" href="<?php echo base_url() ?>">
 
       <img src="<?php echo base_url().'assets/dist/img/logo-pkbm.png'?>" alt="" height="64" class="d-inline-block align-text-center">
-      <span class="mx-2 fs-4">SMK NEGERI 1 CIOMAS</span>
+      <span class="mx-2 fs-4"><?php echo $text_nav ?></span>
 
     </a>
         <ul class="navbar-nav">
