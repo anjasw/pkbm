@@ -24,7 +24,7 @@
           </div>
 
           <div class="px-4 pt-5 text-center border-bottom">
-    <h2 class="display-6 fw-bold">Pusat Kegiatan Belajar Masyarakat</h2>
+    <h2 class="display-8 fw-bold">Pusat Kegiatan Belajar Masyarakat</h2>
     <div class="col-lg-8 mx-auto">
       <p class="lead mb-4">Pusat Kegiatan Belajar Masyarakat disingkat PKBM, adalah lembaga yang dibentuk oleh masyarakat untuk masyarakat yang bergerak dalam bidang pendidikan Non Formal. PKBM ini masih berada di bawah pengawasan dan bimbingan dari Dinas Pendidikan Nasional. Sebagai salah satu satuan pendidikan non formal, PKBM diharapkan dapat menjadi wadah bagi kegiatan masyarakat untuk lebih meningkatkan potensi diri dan keterampilan.</p>
     </div>
@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  <section>
+  <!-- <section class="d-none">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -85,220 +85,245 @@
 						</div>
 					</div>
         </div>
+      </div>
+    </div>
+  </section> -->
 
-        
+  
+
+  <section class="py-5" style="background-color: Lavender;">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check" viewBox="0 0 16 16">
+        <title>Check</title>
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+    </svg>
+
+    <div class="container">
+    
+      <div class="row py-5">
+      
+        <div class="col-md-12 card shadow" style="border-radius: 16px; overflow: hidden;">
+          <div class="card-body">
+            
+          <h2 class="card-title py-3 display-8 fw-bold text-center">Pendaftaran Online Jenjang</h2>
+            <div class="table-responsive">
+              <table class="table text-center table-striped">
+                <thead>
+                  <tr>
+                    <th style="width: 32%;"></th>
+                    <th style="width: 17%; color: red;">Jalur SD</th>
+                    <th style="width: 17%; color: blue;">Jalur SMP</th>
+                    <th style="width: 17%; color: grey;">Jalur SMA</th>
+                    <th style="width: 17%; color: green;">Jalur SMK</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start">Prestasi</th>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Afirmasi</th>
+                    <td></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Zonasi</th>
+                    <td></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Pindah Tugas Orangtua dan Anak Guru</th>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Tahap Kedua</th>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                  </tr>
+                  
+                  <tr>
+                    <th scope="row" class="text-start">Tahap Ketiga</th>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">PPDB Bersama Tahap Kedua</th>
+                    <td></td>
+                    <td></td>
+                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <td></td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+
+            <div id="grad2" class="mb-3 pt-5 rounded-3">
+            <h2 class="display-8 fw-bold text-center">Form Daftar</h2>
+            <form id="regForm" action="<?php echo base_url() ?>home/savepd" method="post">
+                  <div class="tab">
+                      <div class="form-group">
+                        <label for="nis">NIS</label>
+                        <input type="number" placeholder="NIS" class="form-control" name="nis">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label for="nisn">NISN</label>
+                          <input type="number" placeholder="NISN" class="form-control" name="nisn">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label for="nama">Nama</label>
+                          <input type="text" placeholder="Nama" class="form-control" name="nama">
+                      </div>
+                      
+                  </div>
+                  <div class="tab">
+                    <div class="form-group">
+                      <label for="tempat_lahir">Tempat Lahir</label>
+                        <input type="text" placeholder="Tempat Lahir" class="form-control" name="tempat_lahir">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <label for="tanggal_lahir">Tanggal Lahir</label>
+                      <input type="date" placeholder="Tanggal Lahir" class="form-control" name="tanggal_lahir">
+                    </div>
+                      <br>
+                      <div class="form-group">
+                        <label for="jk">Jenis Kelamin</label>
+                        <select name="jk" id="jk" class="form-select">
+                          <option value="-">Jenis Kelamin</option>
+                          <option value="laki-laki">Laki - Laki</option>
+                          <option value="perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                      
+                  </div>
+                  <div class="tab">
+                      <div class="form-group">
+                        <label for="nik">NIK</label>
+                      <input type="number" placeholder="NIK" class="form-control" name="nik">
+                    </div>
+                      <br>
+                      <div class="form-group">
+                        <label for="agama">Agama</label>
+                        <select name="agama" id="agama" class="form-select">
+                          <option value="Islam">Islam</option>
+                          <option value="protestan">Kristen - Protestan</option>
+                          <option value="katholik">Kristen - Katholik</option>
+                          <option value="Hindhu">Hindhu</option>
+                          <option value="Budha">Budha</option>
+                          <option value="Konghuchu">Konghuchu</option>
+                        </select>
+                    </div>
+                    <br>
+                      <div class="form-group">
+                        <label for="nama_ayah">Nama Ibu</label>
+                        <input type="text" placeholder="Nama Ibu" class="form-control" name="nama_ibu">
+                      </div>
+                      
+                  </div>
+                  <br>
+                  <div class="tab">
+                    <div class="form-group">
+                      <label for="nama_ayah">Nama Ayah</label>
+                      <input type="text" placeholder="Nama Ayah" class="form-control" name="nama_ayah">
+                    </div>
+                    <br>
+                    <div class="row">
+                      <label for="nohp">Nomor Pribadi</label>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="text" placeholder="No HP" class="form-control" name="no_hp">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="text" placeholder="No WhatsApp" class="form-control" name="no_wa">
+                          </div>
+                      </div>
+                  </div>
+                    <br>
+                    <div class="form-group">
+                      <label for="alamat">Alamat</label>
+                      <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="3" placeholder="Alamat"></textarea>
+                  </div>
+                  <br>
+                  </div>
+                  <div style="overflow:auto;">
+                      <div style="float:right;">
+                          <button type="button" id="prevBtn" class="btn btn-primary " onclick="nextPrev(-1)">Previous</button>
+                          <button type="button" id="nextBtn" class="btn btn-primary " onclick="nextPrev(1)">Next</button>
+                      </div>
+                  </div>
+                  <!-- Circles which indicates the steps of the form: -->
+                  <div style="text-align:center;margin-top:40px;">
+                      <span class="step"></span>
+                      <span class="step"></span>
+                      <span class="step"></span>
+                      <span class="step"></span>
+                  </div>
+              </form>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+    <div class="container py-5">
+      <div id="grad" style="border-radius: 16px; overflow: hidden;">
+      <div class="row">
+            <div class="col-md-8 d-flex justify-content-center h-100" style="padding: 0 0 0 10px;border-radius: 16px; overflow: hidden;">
+              <?php echo $embed_lokasi ?>
+            </div>
+            <div class="col-md-4 p-5 text-white">
+              <h4>Alamat Sekolah</h4>
+              <span>
+              Jl. Ciomas Cibinong Ciapus, Ciapus, Ciomas, Kabupaten Bogor, Jawa Barat 16610
+              </span>
+              <hr>
+              <h4>Info & Kontak</h4>
+              <span>
+                  <?php foreach($kontak->result() as $r): ?>
+                    <a href="#" style="text-decoration:none;"><?= $r->tipe.' - '.$r->kontak ?></a>
+                  <?php endforeach; ?>
+              </span>
+              <hr>
+            </div>
+          </div>
       </div>
     </div>
   </section>
 
-    <div class="py-5" style="background-color: #F0F8FF;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-header" style="background-color:<?php echo $warnasd->row()->bg_color ?>;color:<?php echo $warnasd->row()->font_color ?>;">
-                          <p class="mb-0">Pendaftaran Online Jenjang</p>
-                          <h4>Jalur SD</h4>
-                        </div>
-                        <div class="card-body p-1">
-                          <ul class="list-group list-group-flush">
-                            <?php foreach($sd->result() as $d): ?>
-                            <li class="list-group-item"><i aria-hidden="true" class="fa fa-check-square-o"></i><?php echo $d->jalur_jenjang ?></li>
-                            <?php endforeach; ?>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-header" style="background-color:<?php echo $warnasmp->row()->bg_color ?>;color:<?php echo $warnasmp->row()->font_color ?>;">                   
-                        <p class="mb-0">Pendaftaran Online Jenjang</p>
-                          <h4>Jalur SMP</h4>
-                        </div>
-                        <div class="card-body p-1">
-                          <ul class="list-group list-group-flush">
-                            <?php foreach($smp->result() as $p): ?>
-                            <li class="list-group-item"><i aria-hidden="true" class="fa fa-check-square-o"></i><?php echo $p->jalur_jenjang ?></li>
-                            <?php endforeach; ?>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-header" style="background-color:<?php echo $warnasma->row()->bg_color ?>;color:<?php echo $warnasma->row()->font_color ?>;">
-                          <p class="mb-0">Pendaftaran Online Jenjang</p>
-                          <h4>Jalur SMA</h4>
-                        </div>
-                        <div class="card-body p-1">
-                          <ul class="list-group list-group-flush">
-                            <?php foreach($sma->result() as $a): ?>
-                            <li class="list-group-item"><i aria-hidden="true" class="fa fa-check-square-o"></i><?php echo $a->jalur_jenjang ?></li>
-                            <?php endforeach; ?>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="card">
-                        <div class="card-header" style="background-color:<?php echo $warnasmk->row()->bg_color ?>;color:<?php echo $warnasmk->row()->font_color ?>;">
-                          <p class="mb-0">Pendaftaran Online Jenjang</p>
-                          <h4>Jalur SMK</h4>
-                        </div>
-                        <div class="card-body p-1">
-                          <ul class="list-group list-group-flush">
-                          <?php foreach($smk->result() as $k): ?>
-                            <li class="list-group-item"><i aria-hidden="true" class="fa fa-check-square-o"></i><?php echo $k->jalur_jenjang ?></li>
-                            <?php endforeach; ?>
-                         </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 form-regist py-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <form id="regForm" action="<?php echo base_url() ?>home/savepd" method="post">
-                                <h1>Form Daftar</h1>
-                                <div class="tab">
-                                    <div class="form-group">
-                                      <label for="nis">NIS</label>
-                                      <input type="number" placeholder="NIS" class="form-control" name="nis">
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                      <label for="nisn">NISN</label>
-                                        <input type="number" placeholder="NISN" class="form-control" name="nisn">
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                      <label for="nama">Nama</label>
-                                        <input type="text" placeholder="Nama" class="form-control" name="nama">
-                                    </div>
-                                    
-                                </div>
-                                <div class="tab">
-                                  <div class="form-group">
-                                    <label for="tempat_lahir">Tempat Lahir</label>
-                                      <input type="text" placeholder="Tempat Lahir" class="form-control" name="tempat_lahir">
-                                  </div>
-                                  <br>
-                                  <div class="form-group">
-                                    <label for="tanggal_lahir">Tanggal Lahir</label>
-                                    <input type="date" placeholder="Tanggal Lahir" class="form-control" name="tanggal_lahir">
-                                  </div>
-                                    <br>
-                                    <div class="form-group">
-                                      <label for="jk">Jenis Kelamin</label>
-                                      <select name="jk" id="jk" class="form-select">
-                                        <option value="-">Jenis Kelamin</option>
-                                        <option value="laki-laki">Laki - Laki</option>
-                                        <option value="perempuan">Perempuan</option>
-                                      </select>
-                                  </div>
-                                    
-                                </div>
-                                <div class="tab">
-                                    <div class="form-group">
-                                      <label for="nik">NIK</label>
-                                    <input type="number" placeholder="NIK" class="form-control" name="nik">
-                                  </div>
-                                    <br>
-                                    <div class="form-group">
-                                      <label for="agama">Agama</label>
-                                      <select name="agama" id="agama" class="form-select">
-                                        <option value="Islam">Islam</option>
-                                        <option value="protestan">Kristen - Protestan</option>
-                                        <option value="katholik">Kristen - Katholik</option>
-                                        <option value="Hindhu">Hindhu</option>
-                                        <option value="Budha">Budha</option>
-                                        <option value="Konghuchu">Konghuchu</option>
-                                      </select>
-                                  </div>
-                                  <br>
-                                    <div class="form-group">
-                                      <label for="nama_ayah">Nama Ibu</label>
-                                      <input type="text" placeholder="Nama Ibu" class="form-control" name="nama_ibu">
-                                    </div>
-                                    
-                                </div>
-                                <br>
-                                <div class="tab">
-                                  <div class="form-group">
-                                    <label for="nama_ayah">Nama Ayah</label>
-                                    <input type="text" placeholder="Nama Ayah" class="form-control" name="nama_ayah">
-                                  </div>
-                                  <br>
-                                  <div class="row">
-                                    <label for="nohp">Nomor Pribadi</label>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                          <input type="text" placeholder="No HP" class="form-control" name="no_hp">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                          <input type="text" placeholder="No WhatsApp" class="form-control" name="no_wa">
-                                        </div>
-                                    </div>
-                                </div>
-                                  <br>
-                                  <div class="form-group">
-                                    <label for="alamat">Alamat</label>
-                                    <textarea name="alamat" id="alamat" class="form-control" cols="30" rows="3" placeholder="Alamat"></textarea>
-                                </div>
-                                <br>
-                                </div>
-                                <div style="overflow:auto;">
-                                    <div style="float:right;">
-                                        <button type="button" id="prevBtn" class="btn btn-primary " onclick="nextPrev(-1)">Previous</button>
-                                        <button type="button" id="nextBtn" class="btn btn-primary " onclick="nextPrev(1)">Next</button>
-                                    </div>
-                                </div>
-                                <!-- Circles which indicates the steps of the form: -->
-                                <div style="text-align:center;margin-top:40px;">
-                                    <span class="step"></span>
-                                    <span class="step"></span>
-                                    <span class="step"></span>
-                                    <span class="step"></span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-md-9">
-            <h1 class="text-center">Peta Sekolah</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-9">
-          <?php echo $embed_lokasi ?>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <div class="card-header bg-kontak text-white">Info & Kontak</div>
-              <div class="card-body">
-                <ul>
-                  <?php foreach($kontak->result() as $r): ?>
-                  <li><a href="#" style="text-decoration:none"><?= $r->tipe.' - '.$r->kontak ?></a></li>
-                  <?php endforeach; ?>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  
+
+  
+
+    
+
+    
+      
       <div class="bg-light py-5 mb-5">
         <div class="container">
           <div class="row">

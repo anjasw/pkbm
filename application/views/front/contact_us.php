@@ -1,20 +1,26 @@
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card py-3">
-                <h1>Kontak Kami</h1>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-8 offset-2 text-center">
-                            <h4>Bila ada yang ingin ditanyakan seputar pendaftaran online, anda bisa menghubungi kontak kami dibawah ini</h4>
-                            <br>
-                            <?php foreach($kontak->result() as $k): ?>
-                                <h5><?php echo $k->tipe.' : '.$k->kontak ?> </h5>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
+<section style="background-color: Lavender;">
+    <div class="container py-5">
+    <h4 class="p-5">Bila ada yang ingin ditanyakan seputar pendaftaran online, anda bisa menghubungi kontak kami dibawah ini:</h4>
+      <div id="grad" style="border-radius: 16px; overflow: hidden;">
+      <div class="row">
+            <div class="col-md-8 d-flex justify-content-center h-100" style="padding: 0 0 0 10px;border-radius: 16px; overflow: hidden;">
+              <?php echo $embed_lokasi ?>
             </div>
-        </div>
+            <div class="col-md-4 p-5 text-white">
+              <h4>Alamat Sekolah</h4>
+              <span>
+              Jl. Ciomas Cibinong Ciapus, Ciapus, Ciomas, Kabupaten Bogor, Jawa Barat 16610
+              </span>
+              <hr>
+              <h4>Info & Kontak</h4>
+              <span>
+                  <?php foreach($kontak->result() as $r): ?>
+                    <a href="#" style="text-decoration:none;"><?= $r->tipe.' - '.$r->kontak ?></a>
+                  <?php endforeach; ?>
+              </span>
+              <hr>
+            </div>
+          </div>
+      </div>
     </div>
-</div>
+  </section>
