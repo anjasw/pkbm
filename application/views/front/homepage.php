@@ -2,14 +2,18 @@
 <body>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <?php $no =  0; foreach($slider->result() as $s): ?>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $no ?>" <?php echo ($no == 0) ? 'class="active"' : '' ?> aria-current="true" aria-label="Slide <?php echo $no ?>"></button>
+    <?php $no++; endforeach; ?>
+    <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
     
   </div>
     <div class="carousel-inner">
                   <?php $no =  1; foreach($slider->result() as $s): ?>
+
                   <div class="carousel-item <?php echo ($no == 1) ? 'active' : '' ?>">
-                    <img style="object-fit: cover;" src="<?php echo base_url().'assets/dist/img/banner-1.jpg'?>" class="d-block w-100" alt="<?php echo $s->alt_img ?>">
+                    <img style="object-fit: cover;" src="<?php echo base_url().'uploads/'.$s->img_name ?>" class="d-block w-100" alt="<?php echo $s->alt_img ?>">
                   </div>
                   <?php $no++; endforeach; ?>
                 </div>
@@ -28,9 +32,9 @@
     <div class="col-lg-8 mx-auto">
       <p class="lead mb-4">Pusat Kegiatan Belajar Masyarakat disingkat PKBM, adalah lembaga yang dibentuk oleh masyarakat untuk masyarakat yang bergerak dalam bidang pendidikan Non Formal. PKBM ini masih berada di bawah pengawasan dan bimbingan dari Dinas Pendidikan Nasional. Sebagai salah satu satuan pendidikan non formal, PKBM diharapkan dapat menjadi wadah bagi kegiatan masyarakat untuk lebih meningkatkan potensi diri dan keterampilan.</p>
     </div>
-    <div class="overflow-hidden" style="max-height: 30vh;">
+    <div class="overflow-hidden" style="max-height: 170px;">
       <div class="container px-5">
-        <img src="<?php echo base_url().'assets/dist/img/bg-pkbm-01.png'?>" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+        <img src="<?php echo base_url().'assets/dist/img/bg-2.jpg'?>" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
       </div>
     </div>
   </div>
@@ -119,14 +123,16 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php foreach($jalur as $j): ?>
                   <tr>
-                    <th scope="row" class="text-start">Prestasi</th>
-                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
-                    <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                    <th scope="row" class="text-start"><?php echo $j->jalur_jenjang ?></th>
+                    <td><?php echo ($j->sd == 1) ? '<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>' : '' ?></td>
+                    <td><?php echo ($j->smp == 1) ? '<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>' : '' ?></td>
+                    <td><?php echo ($j->sma == 1) ? '<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>' : '' ?></td>
+                    <td><?php echo ($j->smk == 1) ? '<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>' : '' ?></td>
                   </tr>
-                  <tr>
+                  <?php endforeach; ?>
+                  <!-- <tr>
                     <th scope="row" class="text-start">Afirmasi</th>
                     <td></td>
                     <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
@@ -168,7 +174,7 @@
                     <td></td>
                     <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
                     <td></td>
-                  </tr>
+                  </tr> -->
                   
                 </tbody>
               </table>
@@ -300,7 +306,7 @@
             <div class="col-md-4 p-5 text-white">
               <h4>Alamat Sekolah</h4>
               <span>
-              Jl. Ciomas Cibinong Ciapus, Ciapus, Ciomas, Kabupaten Bogor, Jawa Barat 16610
+              <?php echo $alamat ?>
               </span>
               <hr>
               <h4>Info & Kontak</h4>
@@ -338,7 +344,7 @@
                     <h5 class="card-title"><?php echo $p->title ?></h5>
                     <p>
                       <?php echo word_limiter($p->description,19); ?>
-                      <a href="<?php echo base_url().'home/detail_post/'.$p->id_posts.'/'.str_replace(' ','-',strtolower($p->title)) ?>">Selengkapnya</a>
+                      <a href="<?php echo base_url().'home/detail_post/'.$p->id_posts.'/'.str_replace(' ','-',strtolower(str_replace('!','',$p->title))) ?>">Selengkapnya</a>
                    </p>
                   </div>
               </div>
@@ -348,3 +354,59 @@
       </div>
     </div>
     
+<script>
+var currentTab = 0;
+showTab(currentTab); 
+
+function showTab(n) {
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  var x = document.getElementsByClassName("tab");
+  if (n == 1 && !validateForm()) return false;
+  x[currentTab].style.display = "none";
+  currentTab = currentTab + n;
+  if (currentTab >= x.length) {
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  showTab(currentTab);
+}
+
+function validateForm() {
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  for (i = 0; i < y.length; i++) {
+    if (y[i].value == "") {
+      y[i].className += " invalid";
+      valid = false;
+    }
+  }
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; 
+}
+
+function fixStepIndicator(n) {
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  x[n].className += " active";
+}
+</script>

@@ -20,17 +20,13 @@ class Slider extends CI_Controller {
             if($this->input->method(TRUE) == "POST"){
                 if($this->uploadImgSlider()){   
                     $filename = $this->uploadImgSlider();
-                    // var_dump($filename);die();
-                    $dataInsert['alt_img'] = $this->input->post('alt_img');
-                    $dataInsert['img_name'] = $filename['file']['file_name'];
-                    if($this->sm->updateSlider($id,$dataInsert)){
-                        redirect('backadmin/slider');
+                    if($filename['result'] != 'failed'){
+                        $dataInsert['img_name'] = $filename['file']['file_name'];
                     }
-                }else{
-                    $dataInsert['alt_img'] = $this->input->post('alt_img');
-                    if($this->sm->updateSlider($id,$dataInsert)){
-                        redirect('backadmin/slider');
-                    }
+                }
+                $dataInsert['alt_img'] = $this->input->post('alt_img');
+                if($this->sm->updateSlider($id,$dataInsert)){
+                    redirect('backadmin/slider');
                 }
             }
             $data['view'] = 'back/slider/edit';
@@ -72,10 +68,11 @@ class Slider extends CI_Controller {
     public function uploadImgSlider(){
         $filename = 'pkbm_slider_'.time();
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'jpg|png|webp';
+        $config['allowed_types'] = 'jpg|png|webp|jpeg';
         $config['max_size']    = '2048';
         $config['overwrite'] = true;
         $config['file_name'] = $filename;
+        $config['quality'] = '90%';
         $this->load->library('upload', $config);
         $this->upload->initialize($config); 
         if ($this->upload->do_upload('img_name')) { 

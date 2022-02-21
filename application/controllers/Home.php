@@ -15,14 +15,7 @@ class Home extends CI_Controller {
 		$home['posts'] = $this->pst->getPosts();
 		$home['kontak'] = $this->km->getKontak();
 		$home['slider'] = $this->sm->getSlider();
-		$home['sd'] = $this->jm->getJalur(false,'sd');
-        $home['warnasd'] = $this->jm->getJalur(false,'sd',true);
-        $home['smp'] = $this->jm->getJalur(false,'smp');
-        $home['warnasmp'] = $this->jm->getJalur(false,'smp',true);
-        $home['smk'] = $this->jm->getJalur(false,'smk');
-        $home['warnasmk'] = $this->jm->getJalur(false,'smk',true);
-        $home['sma'] = $this->jm->getJalur(false,'sma');
-        $home['warnasma'] = $this->jm->getJalur(false,'sma',true);
+		$home['jalur'] = $this->jm->getJalur()->result();
 		$head['title'] = $this->db->get('config_page')->row()->title;
 		$head['logo'] = $this->db->get('config_page')->row()->logo;
 		$head['icon'] = $this->db->get('config_page')->row()->icon;
@@ -32,10 +25,14 @@ class Home extends CI_Controller {
 		$head['description'] = $this->db->get('config_page')->row()->meta_description;
 		$foot['logo'] = $this->db->get('config_page')->row()->logo;
 		$foot['kategori'] = $this->db->get('kategori');
+		$foot['alamat'] = $this->db->get('config_page')->row()->alamat;
+		$home['alamat'] = $this->db->get('config_page')->row()->alamat;
+		$nav['nama_sekolah'] = $this->db->get('config_page')->row()->text_nav;
+		$foot['nama_sekolah'] = $this->db->get('config_page')->row()->text_nav;
 		$foot['posts'] = $this->pst->getPosts(false,true);
 
 		$this->load->view('front/head',$head);
-		$this->load->view('front/nav');
+		$this->load->view('front/nav',$nav);
 		$this->load->view('front/homepage',$home);
 		$this->load->view('front/foot',$foot);
 	}
@@ -87,13 +84,16 @@ class Home extends CI_Controller {
 			$head['text_nav'] = $this->db->get('config_page')->row()->text_nav;
 			$head['icon'] = $this->db->get('config_page')->row()->icon;
 			$head['embed_lokasi'] = $this->db->get('config_page')->row()->embed_lokasi;
-			$head['keywords'] = $this->db->get('config_page')->row()->meta_keyword;
-			$head['description'] = $this->db->get('config_page')->row()->meta_description;
+			$head['keywords'] = $data['detail_post']->row()->meta_keyword;
+			$head['description'] = $data['detail_post']->row()->meta_description;
 			$foot['posts'] = $this->pst->getPosts(false,true);
 			$foot['logo'] = $this->db->get('config_page')->row()->logo;
+			$foot['alamat'] = $this->db->get('config_page')->row()->alamat;
 			$foot['kategori'] = $this->db->get('kategori');
+			$foot['nama_sekolah'] = $this->db->get('config_page')->row()->text_nav;
+			$nav['nama_sekolah'] = $this->db->get('config_page')->row()->text_nav;
 			$this->load->view('front/head',$head);
-			$this->load->view('front/nav');
+			$this->load->view('front/nav',$nav);
 			$this->load->view('front/detail_post',$data);
 			$this->load->view('front/foot',$foot);
 		}else{
@@ -111,10 +111,17 @@ class Home extends CI_Controller {
 		$head['description'] = $this->db->get('config_page')->row()->meta_description;
 		$foot['posts'] = $this->pst->getPosts(false,true);
 		$foot['logo'] = $this->db->get('config_page')->row()->logo;
+		$foot['alamat'] = $this->db->get('config_page')->row()->alamat;
 		$foot['kategori'] = $this->db->get('kategori');
+		$foot['nama_sekolah'] = $this->db->get('config_page')->row()->text_nav;
+		$nav['nama_sekolah'] = $this->db->get('config_page')->row()->text_nav;
 		$this->load->view('front/head',$head);
-		$this->load->view('front/nav');
+		$this->load->view('front/nav',$nav);
 		$this->load->view('front/contact_us',$data);
 		$this->load->view('front/foot',$foot);
+	}
+	public function clean($string) {
+		$string = str_replace(' ', '-', $string); 
+		return preg_replace('/[^A-Za-z0-9\-]/', '', $string);
 	}
 }

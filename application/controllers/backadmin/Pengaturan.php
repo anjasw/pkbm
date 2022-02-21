@@ -31,6 +31,7 @@ class Pengaturan extends CI_Controller {
             $dataUpdate['title'] = $this->input->post('title');
             $dataUpdate['embed_lokasi'] = $this->input->post('embed_lokasi');
             $dataUpdate['meta_keyword'] = $this->input->post('meta_keyword');
+            $dataUpdate['alamat'] = $this->input->post('alamat');
             $dataUpdate['meta_description'] = $this->input->post('meta_description');
             $dataUpdate['text_nav'] = $this->input->post('text_nav');
             if($this->km->updatePengaturan($dataUpdate)){

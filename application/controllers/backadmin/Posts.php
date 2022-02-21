@@ -86,6 +86,7 @@ class Posts extends CI_Controller {
         $config['max_size']    = '2048';
         $config['overwrite'] = true;
         $config['file_name'] = $filename;
+        $config['quality'] = '90%';
         $this->load->library('upload', $config);
         $this->upload->initialize($config); 
         if ($this->upload->do_upload('image')) { 

@@ -10,27 +10,9 @@ class Jalur extends CI_Controller {
             redirect('backadmin/login');
         }
     }
-    public function editColor(){
-        if($this->input->method(TRUE) == "POST"){
-            $update['bg_color'] = $this->input->post('bg_color');
-            $update['font_color'] = $this->input->post('font_color');
-            $this->db->where('tipe_jenjang',$this->input->post('jenjang'));
-            if($this->db->update('jalur_jenjang',$update)){
-                redirect('backadmin/jalur');
-            }
-        }
-
-    }
 	public function index(){
         $data['view'] = 'back/jalur/index';
-        $data['sd'] = $this->jm->getJalur(false,'sd');
-        $data['warnasd'] = $this->jm->getJalur(false,'sd',true);
-        $data['smp'] = $this->jm->getJalur(false,'smp');
-        $data['warnasmp'] = $this->jm->getJalur(false,'smp',true);
-        $data['smk'] = $this->jm->getJalur(false,'smk');
-        $data['warnasmk'] = $this->jm->getJalur(false,'smk',true);
-        $data['sma'] = $this->jm->getJalur(false,'sma');
-        $data['warnasma'] = $this->jm->getJalur(false,'sma',true);
+        $data['data'] = $this->jm->getJalur();
         if($this->input->method(TRUE) == "POST"){
             $insert['jalur_jenjang'] = $this->input->post('jalur_jenjang');
             $insert['tipe_jenjang'] = $this->input->post('tipe_jenjang');
@@ -44,10 +26,19 @@ class Jalur extends CI_Controller {
         if($id){
             if($this->input->method(TRUE) == "POST"){
                 // var_dump($filename);die();
-                $dataInsert['title'] = $this->input->post('title');
-                $dataInsert['description'] = $this->input->post('description');
-                $dataInsert['image'] = $filename['file']['file_name'];
-                $daaInsert['createdAt'] = date('Y-m-d H:i:s');
+                if($this->input->post('sd')){
+                    $dataInsert['sd'] = $this->input->post('sd');
+                }
+                if($this->input->post('smp')){
+                    $dataInsert['smp'] = $this->input->post('smp');
+                }
+                if($this->input->post('sma')){
+                    $dataInsert['sma'] = $this->input->post('sma');
+                }
+                if($this->input->post('smk')){
+                    $dataInsert['smk'] = $this->input->post('smk');
+                }
+                $dataInsert['jalur_jenjang'] = $this->input->post('jalur_jenjang');
                 if($this->jm->updateJalur($id,$dataInsert)){
                     redirect('backadmin/jalur');
                 }
@@ -63,23 +54,21 @@ class Jalur extends CI_Controller {
     public function tambah(){
         if($this->input->method(TRUE) == "POST"){
             // var_dump($this->uploadImgJalur());die();
-            if($this->uploadImgJalur()){
-                $filename = $this->uploadImgJalur();
-                $dataInsert['title'] = $this->input->post('title');
-                $dataInsert['description'] = $this->input->post('description');
-                $dataInsert['image'] = $filename['file']['file_name'];
-                $dataInsert['createdAt'] = date('Y-m-d H:i:s');
-                if($this->jm->insertJalur($dataInsert)){
-                    redirect('backadmin/jalur');
-                }
-            }else{
-                $dataInsert['title'] = $this->input->post('title');
-                $dataInsert['description'] = $this->input->post('description');
-                // $dataInsert['image'] = $this->input->post('image');
-                $dataInsert['createdAt'] = date('Y-m-d H:i:s');
-                if($this->jm->insertJalur($dataInsert)){
-                    redirect('backadmin/jalur');
-                }
+            if($this->input->post('sd')){
+                $dataInsert['sd'] = $this->input->post('sd');
+            }
+            if($this->input->post('smp')){
+                $dataInsert['smp'] = $this->input->post('smp');
+            }
+            if($this->input->post('sma')){
+                $dataInsert['sma'] = $this->input->post('sma');
+            }
+            if($this->input->post('smk')){
+                $dataInsert['smk'] = $this->input->post('smk');
+            }
+            $dataInsert['jalur_jenjang'] = $this->input->post('jalur_jenjang');
+            if($this->jm->insertJalur($dataInsert)){
+                redirect('backadmin/jalur');
             }
         }
         $data['view'] = 'back/jalur/tambah';

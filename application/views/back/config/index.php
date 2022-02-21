@@ -9,11 +9,15 @@
                             <input type="text" name="title" class="form-control" value="<?php echo $pengaturan->title ?>">
                         </div>
                         <div class="form-group">
-                            <label for="text_nav">Teks Navbar</label>
+                            <label for="text_nav">Nama Sekolah</label>
                             <input type="text" name="text_nav" class="form-control" value="<?php echo $pengaturan->text_nav ?>">
                         </div>
                         <div class="form-group">
-                            <label for="embed_lokasi">Embed Lokasi <span style="font-weight: 400; color:red">*Rubah width menjadi 100%</span></label>
+                            <label for="alamat">Alamat</label>
+                            <input type="text" name="alamat" value="<?php echo $pengaturan->alamat ?>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="embed_lokasi">Embed Lokasi <span style="font-weight: 400; color:red">*Rubah width="600" menjadi width="100%"</span></label>
                             <textarea name="embed_lokasi" id="embed_lokasi" class="form-control" cols="30" rows="10"><?php echo $pengaturan->embed_lokasi ?></textarea>
                             <!-- <input type="text" name="embed_lokasi" class="form-control" value=""> -->
                         </div>
